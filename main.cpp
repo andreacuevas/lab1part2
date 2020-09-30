@@ -1,37 +1,38 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 // Base class
 class Shape
 {
 public:
  // pure virtual function providing interface framework.
- virtual int getArea() = 0;
- void setWidth(int w)
+ virtual float getArea() = 0;
+ void setPIE(float PI)
  {
- width = w;
+     pi = PI;
  }
- void setHeight(int h)
+ void setRADIUS(float rad)
  {
- height = h;
+     radius = rad;
  }
 protected:
- int width;
- int height;
+ float pi;
+ int radius;
 };
-class Triangle: public Shape
+class Circle: public Shape
 {
 public:
- int getArea()
+ float getArea()
  {
- return (width * height)/2;
+    return pow(pi*radius,2);
  }
 };
 int main(void)
 {
- Triangle Tri;
- Tri.setWidth(5);
- Tri.setHeight(7);
+ Circle Cir;
+ Cir.setPIE(3.14);
+ Cir.setRADIUS(7);
  // Print the area of the object.
- cout << "Total Triangle area: " << Tri.getArea() << endl;
+ cout << "Total Area of a Circle: " << Cir.getArea() << endl;
  return 0;
 }
